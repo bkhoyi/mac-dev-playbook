@@ -1,19 +1,35 @@
 ---
-configure_dotfiles: true
+configure_dotfiles: false
 configure_terminal: true
-configure_osx: true
+configure_osx: false
 
 # Set to 'true' to configure the Dock via dockutil.
-configure_dock: false
-dockitems_remove: []
-# - Launchpad
-# - TV
-# - Podcasts
-# - 'App Store'
-dockitems_persist: []
-# - name: "Sublime Text"
-#   path: "/Applications/Sublime Text.app/"
-#   pos: 5
+configure_dock: true
+dockitems_remove:
+ - TV
+ - Podcasts
+dockitems_persist:
+  - name: "Terminal"
+    path: "/Applications/Utilities/Terminal.app/"
+    pos: 2
+  - name: "Microsoft Teams"
+    path: "/Applications/Microsoft Teams.app/"
+    pos: 3
+  - name: "Microsoft Outlook"
+    path: "/Applications/Microsoft Outlook.app/"
+    pos: 4
+  - name: "Google Chrome"
+    path: "/Applications/Google Chrome.app/"
+    pos: 5
+  - name: "Brave Browser"
+    path: "/Applications/Brave Browser.app/"
+    pos: 6
+  - name: "Firefox"
+    path: "/Applications/Firefox.app/"
+    pos: 7
+  - name: "Beyond Compare"
+    path: "/Applications/Beyond Compare.app/"
+    pos: 8
 
 configure_sudoers: false
 sudoers_custom_config: ''
@@ -35,6 +51,7 @@ dotfiles_files:
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - autoconf
+  - bash
   - bash-completion
   - doxygen
   - gettext
@@ -43,42 +60,51 @@ homebrew_installed_packages:
   - gh
   - go
   - gpg
-  - httpie
   - iperf
   - libevent
-  - sqlite
   - nmap
   - node
   - nvm
-  - php
   - ssh-copy-id
-  - cowsay
   - readline
   - openssl
   - pv
   - wget
   - wrk
-  - zsh-history-substring-search
+  - docker
+  - azure-cli
+  - opentofu
+  - terraform
+  - certbot
 
-homebrew_taps: []
+homebrew_taps:
+ - hashicorp/tap
 
+##  https://formulae.brew.sh/cask/
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - chromedriver
-  - docker
-  - dropbox
-  - firefox
+  - displaylink
   - google-chrome
-  - handbrake
-  - licecap
-  - sequel-ace
-  - slack
-  - sublime-text
-  - transmit
+  - brave-browser
+  - firefox
+  - jetbrains-toolbox
+  - visual-studio-code
+  - openvpn-connect
+  - microsoft-azure-storage-explorer
+  - beyond-compare
+  - vlc
+  - zoom
+## TODO:  setup .net maui
+## TODO:  setup parallels or somesuch, virtualbox does not have amd64 emulation
+## TODO:  add option for Brian to have his mouse driver added
+#  - logi-options+
+#brew install --cask logi-options+
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
+#  - {id: 497799835, name: "Xcode"}
 mas_email: ""
+#mas_email: bkhoyi@liquidx.com
 mas_password: ""
 
 osx_script: "~/.osx --no-restart"
@@ -123,3 +149,5 @@ sublime_package_control:
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
+
+## TODO:  add automation to install displaylink driver, office365, wifi credentials,

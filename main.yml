@@ -1,6 +1,6 @@
 ---
 - name: Configure host.
-  hosts: all
+  hosts: macdev
 
   vars_files:
     - default.config.yml
